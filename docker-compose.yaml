@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - NODE_ENV=production
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # Tells the frontend container where to send API requests when running in the user's browser
+        - VITE_API_URL=http://localhost:3001/api
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
