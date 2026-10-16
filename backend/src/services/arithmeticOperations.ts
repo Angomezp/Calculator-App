@@ -37,7 +37,10 @@ export class Exponent implements IOperations {
 export class SquareRoot implements IOperations {
   execute(a: number): number {
     if (a < 0) {
-      throw new CalculationError('NEGATIVE_SQUARE_ROOT', 'Cannot calculate square root of a negative number.');
+      throw new CalculationError(
+        'NEGATIVE_SQUARE_ROOT',
+        'Cannot calculate square root of a negative number.'
+      );
     }
     return Math.sqrt(a);
   }

@@ -5,6 +5,10 @@ import { calculateRequestSchema } from '../schemas/calculatorSchema.js';
 
 const router = Router();
 
-router.post('/calculate', validate(calculateRequestSchema), calculatorController.handleCalculate);
+router.post(
+  '/calculate',
+  validate(calculateRequestSchema),
+  calculatorController.handleCalculate
+);
 
 export default router;

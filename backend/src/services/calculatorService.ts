@@ -13,7 +13,6 @@ import {
   Percentage,
 } from './arithmeticOperations.js';
 
-
 export class CalculatorService implements ICalculatorService {
   private strategies: Map<string, IOperations>;
 
@@ -33,7 +32,10 @@ export class CalculatorService implements ICalculatorService {
     const strategy = this.strategies.get(data.operation);
 
     if (!strategy) {
-      throw new CalculationError('UNSUPPORTED_OPERATION', `Unsupported operation: ${data.operation}`);
+      throw new CalculationError(
+        'UNSUPPORTED_OPERATION',
+        `Unsupported operation: ${data.operation}`
+      );
     }
 
     return strategy.execute(data.a, 'b' in data ? data.b : undefined);

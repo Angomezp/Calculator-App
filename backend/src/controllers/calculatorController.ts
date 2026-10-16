@@ -4,9 +4,15 @@ import { defaultCalculatorService } from '../services/calculatorService.js';
 import type { CalculateRequest } from '../schemas/calculatorSchema.js';
 
 export class CalculatorController {
-  constructor(private calculatorService: ICalculatorService = defaultCalculatorService) {}
+  constructor(
+    private calculatorService: ICalculatorService = defaultCalculatorService
+  ) {}
 
-  public handleCalculate = (req: Request, res: Response, next: NextFunction) => {
+  public handleCalculate = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
     try {
       const body = req.body as CalculateRequest;
       const result = this.calculatorService.calculate(body);
